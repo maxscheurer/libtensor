@@ -21,13 +21,13 @@ jobs:
     
     - name: Install macOS SDK
       if: contains( matrix.os, 'macos')
+      working-directory: /Users/runner
       run: |
         curl -fsSL https://github.com/phracker/MacOSX-SDKs/releases/download/10.15/MacOSX10.9.sdk.tar.xz > ~/MacOSX10.9.sdk.tar.xz
         tar -xzf ~/MacOSX10.9.sdk.tar.xz
         rm ~/MacOSX10.9.sdk.tar.xz
 
     - name: Download and verify miniconda
-      working-directory: ${{ env.HOME }}
       run: |
         if [[ "${{ matrix.os }}" =~ ^macos ]]; then
             md5sum () { command md5 -r "$@"; }
@@ -43,7 +43,6 @@ jobs:
         fi
 
     - name: Install miniconda
-      working-directory: ${{ env.HOME }}
       run: |
         bash miniconda.sh -b -p "$HOME/miniconda"
         rm miniconda.sh
