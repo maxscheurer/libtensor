@@ -2,7 +2,7 @@
 cxx_compiler:
     - clangxx                          # [osx]
     - gxx                              # [linux]
-cxx_compiler:
+c_compiler:
     - clang                            # [osx]
     - gcc                              # [linux]
 target_platform:
