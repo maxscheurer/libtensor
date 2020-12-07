@@ -11,11 +11,11 @@ fi
 
 LTL_VERSION=$(< setup.cfg awk '/current_version/ {print; exit}' | egrep -o "[0-9.]+")
 LTL_TAG=$(git tag --points-at $(git rev-parse HEAD))
-if [[ "$ADCC_TAG" =~ ^v([0-9.]+)$ ]]; then
+if [[ "$LTL_TAG" =~ ^v([0-9.]+)$ ]]; then
 	LABEL=main
 else
 	LABEL=dev
-	LTL_VERSION="${ADCC_VERSION}.dev"
+	LTL_VERSION="${LTL_VERSION}.dev"
 	LTL_TAG=$(git rev-parse HEAD)
 fi
 
