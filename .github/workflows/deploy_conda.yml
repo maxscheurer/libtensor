@@ -26,26 +26,15 @@ jobs:
         tar -xzf ~/MacOSX10.9.sdk.tar.xz
         rm ~/MacOSX10.9.sdk.tar.xz
 
-    - name: Download and verify miniconda (macOS)
-      if: contains( matrix.os, 'macos')
+    - name: Download and verify miniconda
       working-directory: ${{ env.HOME }}
-      env:
-        MINICONDA: Miniconda3-latest-MacOSX-x86_64.sh
       run: |
-        md5sum () { command md5 -r "$@"; }
-        MINICONDA_MD5=$(curl -s https://repo.anaconda.com/miniconda/ | grep -A3 $MINICONDA | sed -n '4p' | sed -n 's/ *<td>\(.*\)<\/td> */\1/p')
-        curl -fsSL https://repo.anaconda.com/miniconda/$MINICONDA > miniconda.sh
-        if [[ $MINICONDA_MD5 != $(md5sum miniconda.sh | cut -d ' ' -f 1) ]]; then
-          echo "Miniconda MD5 mismatch"
-          exit 1
+        if [[ "${{ matrix.os }}" =~ ^macos ]]; then
+            md5sum () { command md5 -r "$@"; }
+            MINICONDA=Miniconda3-latest-MacOSX-x86_64.sh
+        else
+            MINICONDA=Miniconda3-latest-Linux-x86_64.sh
         fi
-
-    - name: Download and verify miniconda (Linux)
-      if: contains( matrix.os, 'ubuntu')
-      working-directory: ${{ env.HOME }}
-      env:
-        MINICONDA: Miniconda3-latest-Linux-x86_64.sh
-      run: |
         MINICONDA_MD5=$(curl -s https://repo.anaconda.com/miniconda/ | grep -A3 $MINICONDA | sed -n '4p' | sed -n 's/ *<td>\(.*\)<\/td> */\1/p')
         curl -fsSL https://repo.anaconda.com/miniconda/$MINICONDA > miniconda.sh
         if [[ $MINICONDA_MD5 != $(md5sum miniconda.sh | cut -d ' ' -f 1) ]]; then
@@ -54,15 +43,11 @@ jobs:
         fi
 
     - name: Install miniconda
+      working-directory: ${{ env.HOME }}
       run: |
         bash miniconda.sh -b -p "$HOME/miniconda"
         rm miniconda.sh
 
-    - name: Setup Conda and adccore checkout
-      env:
-        OS_NAME: ${{ matrix.os }}
-      run: |
-        bash ci/setup_conda.sh
     - name: Build and Deploy
       env:
         ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
