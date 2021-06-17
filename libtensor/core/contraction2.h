@@ -256,10 +256,10 @@ void contraction2<N, M, K>::permute_a(const permutation<k_ordera> &perma)
     sequence<k_ordera, size_t> seqa(0);
     sequence<k_orderc, size_t> seqc1(0), seqc2(0);
     make_seqc(seqc1);
-    for(register size_t i = 0; i < k_ordera; i++)
+    for(size_t i = 0; i < k_ordera; i++)
         seqa[i] = m_conn[k_orderc + i];
     perma.apply(seqa);
-    for(register size_t i = 0; i < k_ordera; i++) {
+    for(size_t i = 0; i < k_ordera; i++) {
         m_conn[k_orderc + i] = seqa[i];
         m_conn[seqa[i]] = k_orderc + i;
     }
@@ -283,10 +283,10 @@ void contraction2<N, M, K>::permute_b(const permutation<k_orderb> &permb)
     sequence<k_orderb, size_t> seqb(0);
     sequence<k_orderc, size_t> seqc1(0), seqc2(0);
     make_seqc(seqc1);
-    for(register size_t i = 0; i < k_orderb; i++)
+    for(size_t i = 0; i < k_orderb; i++)
         seqb[i] = m_conn[k_orderc + k_ordera + i];
     permb.apply(seqb);
-    for(register size_t i = 0; i < k_orderb; i++) {
+    for(size_t i = 0; i < k_orderb; i++) {
         m_conn[k_orderc + k_ordera + i] = seqb[i];
         m_conn[seqb[i]] = k_orderc + k_ordera + i;
     }
@@ -328,7 +328,7 @@ void contraction2<N, M, K>::connect() {
 template<size_t N, size_t M, size_t K>
 void contraction2<N, M, K>::make_seqc(sequence<k_orderc, size_t> &seqc) {
 
-    for(register size_t i = 0, j = 0; i < k_ordera + k_orderb; i++) {
+    for(size_t i = 0, j = 0; i < k_ordera + k_orderb; i++) {
         if(m_conn[k_orderc + i] < k_orderc) {
             seqc[j++] = m_conn[k_orderc + i];
         }
@@ -340,7 +340,7 @@ void contraction2<N, M, K>::adjust_permc(sequence<k_orderc, size_t> &seqc1,
     sequence<k_orderc, size_t> &seqc2) {
 
     size_t seqcc1[k_orderc], seqcc2[k_orderc];
-    for(register size_t i = 0; i < k_orderc; i++) {
+    for(size_t i = 0; i < k_orderc; i++) {
         seqcc1[i] = seqc1[i];
         seqcc2[i] = seqc2[i];
     }

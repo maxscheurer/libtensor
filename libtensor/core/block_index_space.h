@@ -315,7 +315,7 @@ index<N> block_index_space<N>::get_block_start(const index<N> &idx) const
     static const char *method = "get_block_start(const index<N>&)";
 
 #ifdef LIBTENSOR_DEBUG
-    for(register size_t i = 0; i < N; i++) {
+    for(size_t i = 0; i < N; i++) {
         if(idx[i] > m_nsplits[i]) {
             throw out_of_bounds(g_ns, k_clazz, method,
                 __FILE__, __LINE__,
@@ -341,7 +341,7 @@ dimensions<N> block_index_space<N>::get_block_dims(const index<N> &idx) const
     static const char *method = "get_block_dims(const index<N>&)";
 
 #ifdef LIBTENSOR_DEBUG
-    for(register size_t i = 0; i < N; i++) {
+    for(size_t i = 0; i < N; i++) {
         if(idx[i] > m_nsplits[i]) {
             throw out_of_bounds(g_ns, k_clazz, method,
                 __FILE__, __LINE__,
@@ -536,9 +536,9 @@ template<size_t N>
 void block_index_space<N>::init_types() {
 
     size_t lasttype = 0;
-    for(register size_t i = 0; i != N; i++) {
+    for(size_t i = 0; i != N; i++) {
         size_t type = lasttype;
-        for(register size_t j = 0; j < i; j++) {
+        for(size_t j = 0; j < i; j++) {
             if(m_dims[i] == m_dims[j]) {
                 type = m_type[j];
                 break;

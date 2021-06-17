@@ -51,7 +51,7 @@ inline bool split_points::equals(const split_points &sp) const {
 
     size_t sz = m_points.size();
     if(sp.m_points.size() != sz) return false;
-    for(register size_t i = 0; i < sz; i++)
+    for(size_t i = 0; i < sz; i++)
         if(m_points[i] != sp.m_points[i]) return false;
     return true;
 }

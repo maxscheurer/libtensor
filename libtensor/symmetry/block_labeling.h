@@ -141,7 +141,7 @@ inline
 block_labeling<N>::block_labeling(const block_labeling<N> &bl) :
     m_bidims(bl.m_bidims), m_type(bl.m_type), m_labels(0) {
 
-    for (register size_t i = 0; i < N && bl.m_labels[i] != 0; i++) {
+    for (size_t i = 0; i < N && bl.m_labels[i] != 0; i++) {
 
         m_labels[i] = new blk_label_t(*(bl.m_labels[i]));
     }
@@ -152,7 +152,7 @@ template<size_t N>
 inline
 block_labeling<N>::~block_labeling() {
 
-    for (register size_t i = 0; i < N && m_labels[i] != 0; i++) {
+    for (size_t i = 0; i < N && m_labels[i] != 0; i++) {
         delete m_labels[i]; m_labels[i] = 0;
     }
 }
