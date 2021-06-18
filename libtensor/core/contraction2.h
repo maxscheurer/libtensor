@@ -97,30 +97,29 @@ public:
         \throw exception if index numbers are invalid or this
             contraction is complete.
      **/
-    void contract(size_t ia, size_t ib) throw (exception);
+    void contract(size_t ia, size_t ib);
 
     /** \brief Adjusts %index numbering when the argument A comes in a
             permuted form
         \param perma Permutation of the %tensor argument A.
         \throw exception if the contraction is incomplete.
      **/
-    void permute_a(const permutation<k_ordera> &perma) throw(exception);
+    void permute_a(const permutation<k_ordera> &perma);
 
     /** \brief Adjusts %index numbering when the argument B comes in a
             permuted form
         \param permb Permutation of the %tensor argument B.
         \throw exception if the contraction is incomplete.
      **/
-    void permute_b(const permutation<k_orderb> &permb) throw(exception);
+    void permute_b(const permutation<k_orderb> &permb);
 
     /** \brief Adjusts %index numbering when the result comes in a
             permuted form
         \param permc Permutation of the result (c).
      **/
-    void permute_c(const permutation<k_orderc> &permc) throw(exception);
+    void permute_c(const permutation<k_orderc> &permc);
 
-    const sequence<2 * (N + M + K), size_t> &get_conn() const
-        throw(exception);
+    const sequence<2 * (N + M + K), size_t> &get_conn() const;
 
     //@}
 
@@ -202,7 +201,7 @@ inline bool contraction2<N, M, K>::is_complete() const {
 }
 
 template<size_t N, size_t M, size_t K>
-void contraction2<N, M, K>::contract(size_t ia, size_t ib) throw (exception) {
+void contraction2<N, M, K>::contract(size_t ia, size_t ib) {
 
     static const char *method = "contract(size_t, size_t)";
 
@@ -242,8 +241,7 @@ void contraction2<N, M, K>::contract(size_t ia, size_t ib) throw (exception) {
 }
 
 template<size_t N, size_t M, size_t K>
-void contraction2<N, M, K>::permute_a(const permutation<k_ordera> &perma)
-    throw(exception) {
+void contraction2<N, M, K>::permute_a(const permutation<k_ordera> &perma) {
 
     static const char *method = "permute_a(const permutation<N + K>&)";
 
@@ -269,8 +267,7 @@ void contraction2<N, M, K>::permute_a(const permutation<k_ordera> &perma)
 }
 
 template<size_t N, size_t M, size_t K>
-void contraction2<N, M, K>::permute_b(const permutation<k_orderb> &permb)
-    throw(exception) {
+void contraction2<N, M, K>::permute_b(const permutation<k_orderb> &permb) {
 
     static const char *method = "permute_b(const permutation<M + K>&)";
 
@@ -296,8 +293,7 @@ void contraction2<N, M, K>::permute_b(const permutation<k_orderb> &permb)
 }
 
 template<size_t N, size_t M, size_t K>
-void contraction2<N, M, K>::permute_c(const permutation<k_orderc> &permc)
-    throw(exception) {
+void contraction2<N, M, K>::permute_c(const permutation<k_orderc> &permc) {
 
     if(!is_complete()) {
         throw_exc("contraction2<N, M, K>", "permute_c()",
@@ -310,7 +306,7 @@ void contraction2<N, M, K>::permute_c(const permutation<k_orderc> &permc)
 
 template<size_t N, size_t M, size_t K>
 inline const sequence<2 * (N + M + K), size_t>&
-contraction2<N, M, K>::get_conn() const throw(exception) {
+contraction2<N, M, K>::get_conn() const {
 
     if(!is_complete()) {
         throw_exc("contraction2<N, M, K>", "get_conn()",

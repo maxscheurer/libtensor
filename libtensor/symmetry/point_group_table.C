@@ -45,7 +45,7 @@ point_group_table::get_label(const std::string &irrep) const {
 }
 
 void point_group_table::add_product(label_t l1, label_t l2,
-        label_t lr) throw(bad_parameter) {
+        label_t lr) {
 
     const char *method = "add_product(label_t, label_t, label_t)";
 

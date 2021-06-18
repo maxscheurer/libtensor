@@ -101,15 +101,15 @@ public:
         \param type Dimension type.
         \throw bad_parameter If the dimension type is invalid.
      **/
-    size_t get_dim(size_t type) const throw(out_of_bounds);
+    size_t get_dim(size_t type) const;
 
     /** \brief Returns the label of a block of a dimension type.
         \param type Dimension type.
         \param pos Block position.
         \throw out_of_bounds If the dimension type is out of bounds.
      **/
-    label_t get_label(size_t type, size_t pos) const throw(out_of_bounds);
-    
+    label_t get_label(size_t type, size_t pos) const;
+
     //@}
 };
 
@@ -183,7 +183,7 @@ size_t block_labeling<N>::get_dim_type(size_t dim) const {
 
 template<size_t N>
 inline
-size_t block_labeling<N>::get_dim(size_t type) const throw(out_of_bounds) {
+size_t block_labeling<N>::get_dim(size_t type) const {
 
 #ifdef LIBTENSOR_DEBUG
     if (type > N || m_labels[type] == 0)
@@ -199,7 +199,7 @@ size_t block_labeling<N>::get_dim(size_t type) const throw(out_of_bounds) {
 template<size_t N>
 inline
 typename block_labeling<N>::label_t block_labeling<N>::get_label(size_t type,
-        size_t blk) const throw (out_of_bounds) {
+        size_t blk) const {
 
 #ifdef LIBTENSOR_DEBUG
     static const char *method = "get_label(size_t, size_t)";

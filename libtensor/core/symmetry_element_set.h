@@ -141,7 +141,7 @@ public:
     }
 
 private:
-    void remove_all() throw();
+    void remove_all();
 
 };
 
@@ -158,7 +158,7 @@ symmetry_element_set<N, T>::~symmetry_element_set() {
 
 
 template<size_t N, typename T>
-void symmetry_element_set<N, T>::remove_all() throw() {
+void symmetry_element_set<N, T>::remove_all() {
 
     for(iterator i = m_set.begin(); i != m_set.end(); i++) {
         delete *i;

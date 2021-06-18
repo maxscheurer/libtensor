@@ -51,8 +51,7 @@ public:
     /** \brief Constructor
     	\param contr Object describing the contraction
      **/
-    contraction2_list_builder(const contraction2<N, M, K> &contr)
-        throw(bad_parameter, out_of_bounds);
+    contraction2_list_builder(const contraction2<N, M, K> &contr);
 
     /** \brief Populate the optimized list according to the tensor dimensions
     		given
@@ -64,10 +63,10 @@ public:
     template<typename ListT>
     void populate(ListT &list, const dimensions<k_ordera> &dima,
         const dimensions<k_orderb> &dimb,
-        const dimensions<k_orderc> &dimc) const throw(exception);
+        const dimensions<k_orderc> &dimc) const;
 
 private:
-    void fuse() throw(out_of_bounds);
+    void fuse();
 };
 
 
@@ -78,7 +77,7 @@ const char *contraction2_list_builder<N, M, K>::k_clazz =
 
 template<size_t N, size_t M, size_t K>
 contraction2_list_builder<N, M, K>::contraction2_list_builder(
-    const contraction2<N, M, K> &contr) throw(bad_parameter, out_of_bounds)
+    const contraction2<N, M, K> &contr)
 : m_contr(contr), m_num_nodes(0), m_nodes(0), m_nodesz(0) {
 
     static const char *method =
@@ -97,7 +96,7 @@ template<size_t N, size_t M, size_t K>
 template<typename ListT>
 void contraction2_list_builder<N, M, K>::populate(ListT &list,
     const dimensions<k_ordera> &dima, const dimensions<k_orderb> &dimb,
-    const dimensions<k_orderc> &dimc) const throw (exception) {
+    const dimensions<k_orderc> &dimc) const {
 
     const sequence<k_maxconn, size_t> &conn = m_contr.get_conn();
     sequence<k_orderc, size_t> dimc1(0);
@@ -180,7 +179,7 @@ void contraction2_list_builder<N, M, K>::populate(ListT &list,
 
 
 template<size_t N, size_t M, size_t K>
-void contraction2_list_builder<N, M, K>::fuse() throw(out_of_bounds) {
+void contraction2_list_builder<N, M, K>::fuse() {
 
     const sequence<k_maxconn, size_t> &conn = m_contr.get_conn();
 

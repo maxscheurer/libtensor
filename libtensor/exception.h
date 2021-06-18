@@ -56,15 +56,15 @@ public:
      **/
     exception(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *type,
-        const char *message) throw();
+        const char *message);
 
     /** \brief Copy constructor
      **/
-    exception(const exception &e) throw();
+    exception(const exception &e);
 
     /** \brief Virtual destructor
      **/
-    virtual ~exception() throw() { };
+    virtual ~exception() { };
 
     //@}
 
@@ -74,7 +74,7 @@ public:
 
     /** \brief Returns the cause of the exception (message)
      **/
-    virtual const char *what() const throw();
+    virtual const char *what() const;
 
     //@}
 
@@ -87,7 +87,7 @@ public:
 
     /** \brief Clones the exception
      **/
-    virtual libutil::rethrowable_i *clone() const throw() = 0;
+    virtual libutil::rethrowable_i *clone() const = 0;
 
     /** \brief Throws itself
      **/
@@ -101,12 +101,12 @@ class exception_base : public exception {
 public:
     exception_base(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *type,
-        const char *message) throw() : exception(ns, clazz, method,
+        const char *message) : exception(ns, clazz, method,
         file, line, type, message) { }
 
-    virtual ~exception_base() throw() { }
+    virtual ~exception_base() { }
 
-    virtual libutil::rethrowable_i *clone() const throw() {
+    virtual libutil::rethrowable_i *clone() const {
         return new T(dynamic_cast<const T&>(*this));
     }
 
@@ -130,13 +130,12 @@ public:
      **/
     generic_exception(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
-        throw()
         : exception_base<generic_exception>(ns, clazz, method,
             file, line, "generic_exception", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~generic_exception() throw() { };
+    virtual ~generic_exception() { };
 
     //@}
 
@@ -156,13 +155,12 @@ public:
      **/
     bad_parameter(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
-        throw()
         : exception_base<bad_parameter>(ns, clazz, method, file, line,
             "bad_parameter", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~bad_parameter() throw() { };
+    virtual ~bad_parameter() { };
 
     //@}
 
@@ -182,13 +180,12 @@ public:
      **/
     block_not_found(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
-        throw()
         : exception_base<block_not_found>(ns, clazz, method, file, line,
             "block_not_found", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~block_not_found() throw() { };
+    virtual ~block_not_found() { };
 
     //@}
 
@@ -209,13 +206,12 @@ public:
      **/
     immut_violation(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
-        throw()
         : exception_base<immut_violation>(ns, clazz, method, file, line,
             "immut_violation", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~immut_violation() throw() { };
+    virtual ~immut_violation() { };
 
     //@}
 };
@@ -235,13 +231,12 @@ public:
      **/
     out_of_memory(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
-        throw()
         : exception_base<out_of_memory>(ns, clazz, method, file, line,
             "out_of_memory", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~out_of_memory() throw() { };
+    virtual ~out_of_memory() { };
 
     //@}
 };
@@ -260,13 +255,13 @@ public:
      **/
     symmetry_violation(const char *ns, const char *clazz,
         const char *method, const char *file, unsigned int line,
-        const char *message) throw()
+        const char *message)
         : exception_base<symmetry_violation>(ns, clazz, method,
             file, line, "symmetry_violation", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~symmetry_violation() throw() { };
+    virtual ~symmetry_violation() { };
 
     //@}
 };

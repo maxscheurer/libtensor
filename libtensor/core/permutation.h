@@ -121,7 +121,7 @@ public:
         \return Reference to this %permutation.
         \throw out_of_bounds If either of the indices is out of bounds.
      **/
-    permutation<N> &permute(size_t i, size_t j) throw(out_of_bounds);
+    permutation<N> &permute(size_t i, size_t j);
 
     /** \brief Inverts the %permutation
         \return Reference to this %permutation.
@@ -238,8 +238,7 @@ inline permutation<N> &permutation<N>::permute(const permutation<N> &p) {
 
 
 template<size_t N>
-inline permutation<N> &permutation<N>::permute(size_t i, size_t j)
-    throw(out_of_bounds) {
+inline permutation<N> &permutation<N>::permute(size_t i, size_t j) {
 
 #ifdef LIBTENSOR_DEBUG
     if(i >= N || j >= N) {

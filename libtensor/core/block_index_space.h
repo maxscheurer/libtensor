@@ -187,15 +187,13 @@ public:
         \param idx Block %index.
         \throw out_of_bounds If the block %index is out of bounds.
      **/
-    index<N> get_block_start(const index<N> &idx) const
-        throw(out_of_bounds);
+    index<N> get_block_start(const index<N> &idx) const;
 
     /** \brief Returns the %dimensions of a block
         \param idx Block index.
         \throw out_of_bounds If the block %index is out of bounds.
      **/
-    dimensions<N> get_block_dims(const index<N> &idx) const
-        throw(out_of_bounds);
+    dimensions<N> get_block_dims(const index<N> &idx) const;
 
     //@}
 
@@ -207,13 +205,13 @@ public:
         \param dim Dimension number.
         \throw out_of_bounds If the dimension number is out of bounds.
      **/
-    size_t get_type(size_t dim) const throw(out_of_bounds);
+    size_t get_type(size_t dim) const;
 
     /** \brief Returns splitting points
         \param typ Dimension type (see get_type())
         \throw out_of_bounds If the dimension type is out of bounds.
      **/
-    const split_points &get_splits(size_t typ) const throw(out_of_bounds);
+    const split_points &get_splits(size_t typ) const;
 
     /** \brief Adds a split point for a subspace identified by a %mask
         \param msk Dimension mask.
@@ -222,8 +220,7 @@ public:
         \throw bad_parameter If the mask is incorrect.
         \throw out_of_bounds If the position is out of bounds.
      **/
-    void split(const mask<N> &msk, size_t pos)
-        throw(bad_parameter, out_of_bounds);
+    void split(const mask<N> &msk, size_t pos);
 
     /** \brief Attempts to match subspaces that have the same splitting
             patterns, but are assigned different types
@@ -309,8 +306,7 @@ dimensions<N> block_index_space<N>::get_block_index_dims() const {
 
 
 template<size_t N>
-index<N> block_index_space<N>::get_block_start(const index<N> &idx) const
-    throw(out_of_bounds) {
+index<N> block_index_space<N>::get_block_start(const index<N> &idx) const {
 
     static const char *method = "get_block_start(const index<N>&)";
 
@@ -335,8 +331,7 @@ index<N> block_index_space<N>::get_block_start(const index<N> &idx) const
 
 
 template<size_t N>
-dimensions<N> block_index_space<N>::get_block_dims(const index<N> &idx) const
-    throw(out_of_bounds) {
+dimensions<N> block_index_space<N>::get_block_dims(const index<N> &idx) const {
 
     static const char *method = "get_block_dims(const index<N>&)";
 
@@ -363,16 +358,13 @@ dimensions<N> block_index_space<N>::get_block_dims(const index<N> &idx) const
 
 
 template<size_t N>
-inline size_t block_index_space<N>::get_type(size_t dim) const
-    throw(out_of_bounds) {
-
+inline size_t block_index_space<N>::get_type(size_t dim) const {
     return m_type[dim];
 }
 
 
 template<size_t N>
-inline const split_points &block_index_space<N>::get_splits(size_t typ) const
-    throw(out_of_bounds) {
+inline const split_points &block_index_space<N>::get_splits(size_t typ) const {
 
     static const char *method = "get_splits(size_t)";
 
@@ -415,8 +407,7 @@ bool block_index_space<N>::equals(const block_index_space<N> &bis) const {
 
 
 template<size_t N>
-void block_index_space<N>::split(const mask<N> &msk, size_t pos)
-    throw(bad_parameter, out_of_bounds) {
+void block_index_space<N>::split(const mask<N> &msk, size_t pos) {
 
     static const char *method = "split(const mask<N>&, size_t)";
 

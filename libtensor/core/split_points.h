@@ -20,7 +20,7 @@ public:
     bool add(size_t pos);
     bool equals(const split_points &sp) const;
     size_t get_num_points() const;
-    size_t operator[](size_t i) const throw(out_of_bounds);
+    size_t operator[](size_t i) const;
 };
 
 
@@ -63,7 +63,7 @@ inline size_t split_points::get_num_points() const {
 }
 
 
-inline size_t split_points::operator[](size_t i) const throw(out_of_bounds) {
+inline size_t split_points::operator[](size_t i) const {
 
 #ifdef LIBTENSOR_DEBUG
     if(i >= m_points.size()) {

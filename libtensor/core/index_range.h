@@ -51,7 +51,7 @@ public:
 
     /** \brief Permutes both indices defining the range
     **/
-    index_range<N> &permute(const permutation<N> &p) throw(exception);
+    index_range<N> &permute(const permutation<N> &p);
 
 };
 
@@ -86,8 +86,7 @@ inline bool index_range<N>::equals(const index_range<N> &r) const {
 }
 
 template<size_t N>
-inline index_range<N> &index_range<N>::permute(const permutation<N> &p)
-    throw(exception) {
+inline index_range<N> &index_range<N>::permute(const permutation<N> &p) {
     m_begin.permute(p); m_end.permute(p);
     return *this;
 }
