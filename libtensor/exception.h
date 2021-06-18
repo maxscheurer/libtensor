@@ -74,7 +74,7 @@ public:
 
     /** \brief Returns the cause of the exception (message)
      **/
-    virtual const char *what() const;
+    virtual const char *what() const noexcept;
 
     //@}
 

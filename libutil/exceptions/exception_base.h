@@ -29,7 +29,7 @@ public:
 	 **/
 	exception_base(const char *ns, const char *clazz, const char *method,
 		const char *file, unsigned int line, const char *type,
-		const char *message) throw() :
+		const char *message) :
 		exception(ns, clazz, method, file, line, type, message) {
 	}
 
