@@ -115,7 +115,7 @@ exception::exception(const exception &e) : m_bt(e.m_bt) {
 }
 
 
-const char *exception::what() const {
+const char *exception::what() const noexcept {
 
     return m_what;
 }
