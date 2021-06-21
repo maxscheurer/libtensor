@@ -17,13 +17,13 @@ public:
     /** \brief Creates an exception
      **/
     overflow(const char *ns, const char *clazz, const char *method,
-            const char *file, unsigned int line, const char *message):
+            const char *file, unsigned int line, const char *message) noexcept :
             exception_base<overflow>(ns, clazz, method, file, line,
                     "overflow", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~overflow() { };
+    virtual ~overflow() noexcept { };
 
     //@}
 };

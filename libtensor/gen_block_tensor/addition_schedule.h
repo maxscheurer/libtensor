@@ -103,7 +103,7 @@ public:
 private:
     /** \brief Removes all elements from the schedule
      **/
-    void clear_schedule();
+    void clear_schedule() noexcept;
 
 };
 

@@ -18,13 +18,14 @@ public:
     /** \brief Creates an exception
      **/
     bad_symmetry(const char *ns, const char *clazz, const char *method,
-            const char *file, unsigned int line, const char *message) :
+            const char *file, unsigned int line, const char *message)
+    noexcept :
         exception_base<bad_symmetry>(ns, clazz, method, file, line,
                 "bad_symmetry", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~bad_symmetry() { };
+    virtual ~bad_symmetry() noexcept { };
 
     //@}
 };

@@ -21,25 +21,26 @@ public:
 	/**	\brief Creates an exception
 	 **/
 	generic_exception(const char *ns, const char *clazz, const char *method,
-		const char *file, unsigned int line, const char *message) :
+		const char *file, unsigned int line, const char *message)
+		noexcept :
 		exception_base_t(ns, clazz, method, file, line, "generic_exception",
 			message) { };
 
 	/**	\brief Creates an exception that originates in libvmm
 	 **/
 	generic_exception(const char *clazz, const char *method, const char *file,
-		unsigned int line, const char *message) :
+		unsigned int line, const char *message) noexcept :
 		exception_base_t("libutil", clazz, method, file, line,
 			"generic_exception", message) { };
 
 	/**	\brief Copy constructor
 	 **/
-	generic_exception(const generic_exception &e) :
+	generic_exception(const generic_exception &e) noexcept :
 	    exception_base_t(e) { }
 
 	/**	\brief Virtual destructor
 	 **/
-	virtual ~generic_exception() { };
+	virtual ~generic_exception() noexcept { };
 
 	//@}
 
@@ -61,25 +62,25 @@ public:
      **/
     threads_exception(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
-        :
+        noexcept :
         exception_base_t(ns, clazz, method, file, line, "threads_exception",
             message) { };
 
     /** \brief Creates an exception that originates in libvmm
      **/
     threads_exception(const char *clazz, const char *method, const char *file,
-        unsigned int line, const char *message) :
+        unsigned int line, const char *message) noexcept :
         exception_base_t("libutil", clazz, method, file, line,
             "threads_exception", message) { };
 
     /** \brief Copy constructor
      **/
-    threads_exception(const threads_exception &e) :
+    threads_exception(const threads_exception &e) noexcept :
         exception_base_t(e) { }
 
     /** \brief Virtual destructor
      **/
-    virtual ~threads_exception() { };
+    virtual ~threads_exception() noexcept { };
 
     //@}
 
@@ -101,25 +102,26 @@ public:
     /** \brief Creates an exception
      **/
     timings_exception(const char *ns, const char *clazz, const char *method,
-        const char *file, unsigned int line, const char *message) :
+        const char *file, unsigned int line, const char *message)
+        noexcept :
         exception_base_t(ns, clazz, method, file, line, "timings_exception",
             message) { };
 
     /** \brief Creates an exception that originates in libvmm
      **/
     timings_exception(const char *clazz, const char *method, const char *file,
-        unsigned int line, const char *message) :
+        unsigned int line, const char *message) noexcept :
         exception_base_t("libutil", clazz, method, file, line,
             "timings_exception", message) { };
 
     /** \brief Copy constructor
      **/
-    timings_exception(const timings_exception &e) :
+    timings_exception(const timings_exception &e) noexcept :
         exception_base_t(e) { }
 
     /** \brief Virtual destructor
      **/
-    virtual ~timings_exception() { };
+    virtual ~timings_exception() noexcept { };
 
     //@}
 

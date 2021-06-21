@@ -56,15 +56,15 @@ public:
      **/
     exception(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *type,
-        const char *message);
+        const char *message) noexcept;
 
     /** \brief Copy constructor
      **/
-    exception(const exception &e);
+    exception(const exception &e) noexcept;
 
     /** \brief Virtual destructor
      **/
-    virtual ~exception() { };
+    virtual ~exception() noexcept { };
 
     //@}
 
@@ -87,7 +87,7 @@ public:
 
     /** \brief Clones the exception
      **/
-    virtual libutil::rethrowable_i *clone() const = 0;
+    virtual libutil::rethrowable_i *clone() const noexcept = 0;
 
     /** \brief Throws itself
      **/
@@ -101,12 +101,12 @@ class exception_base : public exception {
 public:
     exception_base(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *type,
-        const char *message) : exception(ns, clazz, method,
+        const char *message) noexcept : exception(ns, clazz, method,
         file, line, type, message) { }
 
-    virtual ~exception_base() { }
+    virtual ~exception_base() noexcept { }
 
-    virtual libutil::rethrowable_i *clone() const {
+    virtual libutil::rethrowable_i *clone() const noexcept {
         return new T(dynamic_cast<const T&>(*this));
     }
 
@@ -130,12 +130,13 @@ public:
      **/
     generic_exception(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
+        noexcept
         : exception_base<generic_exception>(ns, clazz, method,
             file, line, "generic_exception", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~generic_exception() { };
+    virtual ~generic_exception() noexcept { };
 
     //@}
 
@@ -155,12 +156,13 @@ public:
      **/
     bad_parameter(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
+        noexcept
         : exception_base<bad_parameter>(ns, clazz, method, file, line,
             "bad_parameter", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~bad_parameter() { };
+    virtual ~bad_parameter() noexcept { };
 
     //@}
 
@@ -180,12 +182,13 @@ public:
      **/
     block_not_found(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
+        noexcept
         : exception_base<block_not_found>(ns, clazz, method, file, line,
             "block_not_found", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~block_not_found() { };
+    virtual ~block_not_found() noexcept { };
 
     //@}
 
@@ -206,12 +209,13 @@ public:
      **/
     immut_violation(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
+        noexcept
         : exception_base<immut_violation>(ns, clazz, method, file, line,
             "immut_violation", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~immut_violation() { };
+    virtual ~immut_violation() noexcept { };
 
     //@}
 };
@@ -231,12 +235,13 @@ public:
      **/
     out_of_memory(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *message)
+        noexcept
         : exception_base<out_of_memory>(ns, clazz, method, file, line,
             "out_of_memory", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~out_of_memory() { };
+    virtual ~out_of_memory() noexcept { };
 
     //@}
 };
@@ -255,13 +260,13 @@ public:
      **/
     symmetry_violation(const char *ns, const char *clazz,
         const char *method, const char *file, unsigned int line,
-        const char *message)
+        const char *message) noexcept
         : exception_base<symmetry_violation>(ns, clazz, method,
             file, line, "symmetry_violation", message) { };
 
     /** \brief Virtual destructor
      **/
-    virtual ~symmetry_violation() { };
+    virtual ~symmetry_violation() noexcept { };
 
     //@}
 };

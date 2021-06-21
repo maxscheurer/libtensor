@@ -6,7 +6,7 @@ namespace libutil {
 const char *unknown_exception::k_what = "libutil::unknown_exception";
 
 
-unknown_exception::~unknown_exception() {
+unknown_exception::~unknown_exception() noexcept {
 
 }
 
@@ -17,7 +17,7 @@ const char *unknown_exception::what() const noexcept {
 }
 
 
-rethrowable_i *unknown_exception::clone() const {
+rethrowable_i *unknown_exception::clone() const noexcept {
 
     try {
         return new unknown_exception;

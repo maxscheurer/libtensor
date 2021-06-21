@@ -38,7 +38,7 @@ public:
      **/
     exception(const char *ns, const char *clazz, const char *method,
         const char *file, unsigned int line, const char *type,
-        const char *message) {
+        const char *message) noexcept {
 
         init(ns, clazz, method, file, line, type, message);
     }
@@ -53,7 +53,7 @@ public:
 
     /**	\brief Virtual destructor
 	 **/
-	virtual ~exception() { };
+	virtual ~exception() noexcept { };
 
 	//@}
 
@@ -70,7 +70,7 @@ public:
 private:
 	void init(const char *ns, const char *clazz, const char *method,
 	        const char *file, unsigned int line, const char *type,
-	        const char *message);
+	        const char *message) noexcept;
 };
 
 

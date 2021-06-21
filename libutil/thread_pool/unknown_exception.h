@@ -18,7 +18,7 @@ private:
 public:
     /** \brief Virtual destructor
      **/
-    virtual ~unknown_exception();
+    virtual ~unknown_exception() noexcept;
 
     /** \brief Returns the type of exception
      **/
@@ -26,7 +26,7 @@ public:
 
     /** \brief Clones this exception using operator new
      **/
-    virtual rethrowable_i *clone() const;
+    virtual rethrowable_i *clone() const noexcept;
 
     /** \brief Rethrows this exception
      **/

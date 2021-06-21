@@ -22,7 +22,7 @@ public:
         m_mtx.lock();
     }
 
-    ~auto_lock() {
+    ~auto_lock() noexcept {
         m_mtx.unlock();
     }
 

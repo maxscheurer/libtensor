@@ -415,7 +415,7 @@ void addition_schedule<N, Traits>::build(
 
 
 template<size_t N, typename Traits>
-void addition_schedule<N, Traits>::clear_schedule() {
+void addition_schedule<N, Traits>::clear_schedule() noexcept {
 
     for(typename schedule_type::iterator i = m_sch.begin();
         i != m_sch.end(); ++i) delete *i;
