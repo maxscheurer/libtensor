@@ -20,7 +20,7 @@
 namespace libtensor {
 
 
-void btod_contract2_test::perform() throw(libtest::test_exception) {
+void btod_contract2_test::perform() {
 
     allocator<double>::init();
 
@@ -101,7 +101,7 @@ void btod_contract2_test::perform() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_bis_1() throw(libtest::test_exception) {
+void btod_contract2_test::test_bis_1() {
 
     //
     //  c_ijkl = a_ijkp b_lp
@@ -152,7 +152,7 @@ void btod_contract2_test::test_bis_1() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_bis_2() throw(libtest::test_exception) {
+void btod_contract2_test::test_bis_2() {
 
     //
     //  c_ijkl = a_ijkp b_lp
@@ -213,7 +213,7 @@ void btod_contract2_test::test_bis_2() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_bis_3() throw(libtest::test_exception) {
+void btod_contract2_test::test_bis_3() {
 
     //
     //  c_ijkl = a_ijkp b_lp
@@ -278,7 +278,7 @@ void btod_contract2_test::test_bis_3() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_bis_4() throw(libtest::test_exception) {
+void btod_contract2_test::test_bis_4() {
 
     //
     //  c_ijkl = a_ijpq b_klpq
@@ -323,7 +323,7 @@ void btod_contract2_test::test_bis_4() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_bis_5() throw(libtest::test_exception) {
+void btod_contract2_test::test_bis_5() {
 
     //
     //  c_ijk = a_ipqr b_jpqrk
@@ -398,7 +398,7 @@ Dimensions: [ijp] = 10. No splitting points. No symmetry.
 The single block of a is zero, b is non-zero. Initially, c is zero.
 The result c is expected to have a single zero block.
  **/
-void btod_contract2_test::test_zeroblk_1() throw(libtest::test_exception) {
+void btod_contract2_test::test_zeroblk_1() {
 
     static const char *testname = "btod_contract2_test::test_zeroblk_1()";
 
@@ -451,7 +451,7 @@ Dimensions: [ijp] = 10. No splitting points. No symmetry.
 The single block of a is zero, b is non-zero. Initially, c is non-zero.
 The result c is expected to have a single zero block.
  **/
-void btod_contract2_test::test_zeroblk_2() throw(libtest::test_exception) {
+void btod_contract2_test::test_zeroblk_2() {
 
     static const char *testname = "btod_contract2_test::test_zeroblk_2()";
 
@@ -505,7 +505,7 @@ Dimensions: [ijp] = 10. No splitting points. No symmetry.
 The single block of a is non-zero, b is zero. Initially, c is zero.
 The result c is expected to have a single zero block.
  **/
-void btod_contract2_test::test_zeroblk_3() throw(libtest::test_exception) {
+void btod_contract2_test::test_zeroblk_3() {
 
     static const char *testname = "btod_contract2_test::test_zeroblk_3()";
 
@@ -558,7 +558,7 @@ Dimensions: [ijp] = 10. No splitting points. No symmetry.
 The single block of a is non-zero, b is zero. Initially, c is non-zero.
 The result c is expected to have a single zero block.
  **/
-void btod_contract2_test::test_zeroblk_4() throw(libtest::test_exception) {
+void btod_contract2_test::test_zeroblk_4() {
 
     static const char *testname = "btod_contract2_test::test_zeroblk_4()";
 
@@ -613,7 +613,7 @@ Only diagonal blocks in a and b are non-zero. Initially, c is zero.
 The result c is expected to have diagonal blocks non-zero and
 off-diagonal blocks zero.
  **/
-void btod_contract2_test::test_zeroblk_5() throw(libtest::test_exception) {
+void btod_contract2_test::test_zeroblk_5() {
 
     static const char *testname = "btod_contract2_test::test_zeroblk_5()";
 
@@ -686,7 +686,7 @@ Only diagonal blocks in a and b are non-zero. Initially, c is non-zero.
 The result c is expected to have diagonal blocks non-zero and
 off-diagonal blocks zero.
  **/
-void btod_contract2_test::test_zeroblk_6() throw(libtest::test_exception) {
+void btod_contract2_test::test_zeroblk_6() {
 
     static const char *testname = "btod_contract2_test::test_zeroblk_6()";
 
@@ -753,7 +753,7 @@ void btod_contract2_test::test_zeroblk_6() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_1() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_1() {
 
     //
     //  c_ijkl = a_ijpq b_klpq
@@ -822,7 +822,7 @@ void btod_contract2_test::test_contr_1() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_2() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_2() {
 
     //
     //  c_ikjl = a_ijpq b_klqp
@@ -892,7 +892,7 @@ void btod_contract2_test::test_contr_2() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_3() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_3() {
 
     //
     //  c_ijkl = a_ijpq b_pqkl
@@ -974,7 +974,7 @@ void btod_contract2_test::test_contr_3() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_4() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_4() {
 
     //
     //  c_ijkl = a_ijpq b_pqkl
@@ -1069,7 +1069,7 @@ void btod_contract2_test::test_contr_4() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_5() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_5() {
 
     //
     //  c_ijkl = c_ijkl + a_ijpq b_pqkl
@@ -1171,7 +1171,7 @@ void btod_contract2_test::test_contr_5() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_6() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_6() {
 
     //
     //  c_ijkl = c_ijkl + a_ijpq b_pqkl
@@ -1272,7 +1272,7 @@ void btod_contract2_test::test_contr_6() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_7() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_7() {
 
     //
     //  c_ijkl = a_pi b_jklp
@@ -1350,7 +1350,7 @@ void btod_contract2_test::test_contr_7() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_8() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_8() {
 
     //
     //  c_ijkl = a_pi b_jklp
@@ -1418,7 +1418,7 @@ void btod_contract2_test::test_contr_8() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_9() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_9() {
 
     //
     //  c_ijkl = - a_pi b_jklp
@@ -1485,7 +1485,7 @@ void btod_contract2_test::test_contr_9() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_10() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_10() {
 
     //
     //  c_ijkl = - a_pi b_jklp
@@ -1543,7 +1543,7 @@ void btod_contract2_test::test_contr_10() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_11() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_11() {
 
     //
     //  c_ijkl = a_ij b_kl
@@ -1605,7 +1605,7 @@ void btod_contract2_test::test_contr_11() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_12() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_12() {
 
     //
     //  c_ijkl = a_ij b_lk
@@ -1669,7 +1669,7 @@ void btod_contract2_test::test_contr_12() throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_13() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_13() {
 
     //
     //  c_ij = a_kijl b_kl
@@ -2488,7 +2488,7 @@ throw(libtest::test_exception) {
     No symmetry in A, partition symmetry in B.
     Zero non-diagonal blocks.
  **/
-void btod_contract2_test::test_contr_21() throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_21() {
 
     std::ostringstream ss;
     ss << "btod_contract2_test::test_contr_21()";

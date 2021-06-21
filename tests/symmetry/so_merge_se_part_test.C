@@ -6,7 +6,7 @@
 
 namespace libtensor {
 
-void so_merge_se_part_test::perform() throw(libtest::test_exception) {
+void so_merge_se_part_test::perform() {
 
     test_empty_1();
     test_empty_2();
@@ -26,7 +26,7 @@ void so_merge_se_part_test::perform() throw(libtest::test_exception) {
 /** \test Tests that a single merge of 2 dim of an empty partition set yields
         an empty partition set of lower order
  **/
-void so_merge_se_part_test::test_empty_1() throw(libtest::test_exception) {
+void so_merge_se_part_test::test_empty_1() {
 
     static const char *testname = "so_merge_se_part_test::test_empty_1()";
 
@@ -60,7 +60,7 @@ void so_merge_se_part_test::test_empty_1() throw(libtest::test_exception) {
 /** \test Tests that a double merge of dimensions of an empty partition set
         yields an empty partition set of lower order
  **/
-void so_merge_se_part_test::test_empty_2() throw(libtest::test_exception) {
+void so_merge_se_part_test::test_empty_2() {
 
     static const char *testname = "so_merge_se_part_test::test_empty_2()";
 

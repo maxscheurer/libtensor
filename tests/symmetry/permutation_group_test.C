@@ -12,7 +12,7 @@
 namespace libtensor {
 
 
-void permutation_group_test::perform() throw(libtest::test_exception) {
+void permutation_group_test::perform() {
 
     test_1();
     test_2a();
@@ -53,7 +53,7 @@ void permutation_group_test::perform() throw(libtest::test_exception) {
 
 /** \test Tests the C1 group in a 4-space
  **/
-void permutation_group_test::test_1() throw(libtest::test_exception) {
+void permutation_group_test::test_1() {
 
     static const char *testname = "permutation_group_test::test_1()";
 
@@ -79,7 +79,7 @@ void permutation_group_test::test_1() throw(libtest::test_exception) {
 
 /** \test Tests the S2(+) group in a 2-space
  **/
-void permutation_group_test::test_2a() throw(libtest::test_exception) {
+void permutation_group_test::test_2a() {
 
     static const char *testname = "permutation_group_test::test_2a()";
 
@@ -110,7 +110,7 @@ void permutation_group_test::test_2a() throw(libtest::test_exception) {
 
 /** \test Tests the S2(-) group in a 2-space
  **/
-void permutation_group_test::test_2b() throw(libtest::test_exception) {
+void permutation_group_test::test_2b() {
 
     static const char *testname = "permutation_group_test::test_2b()";
 
@@ -142,7 +142,7 @@ void permutation_group_test::test_2b() throw(libtest::test_exception) {
 /** \test Tests the S3(+) group in a 3-space. The group is created using
         [012->120] and [012->102].
  **/
-void permutation_group_test::test_3() throw(libtest::test_exception) {
+void permutation_group_test::test_3() {
 
     static const char *testname = "permutation_group_test::test_3()";
 
@@ -181,7 +181,7 @@ void permutation_group_test::test_3() throw(libtest::test_exception) {
 
 /** \test Tests the A4(+) group in a 4-space
  **/
-void permutation_group_test::test_4() throw(libtest::test_exception) {
+void permutation_group_test::test_4() {
 
     static const char *testname = "permutation_group_test::test_4()";
 
@@ -233,7 +233,7 @@ void permutation_group_test::test_4() throw(libtest::test_exception) {
 
 /** \test Tests the S2(+)*S2(+) group in a 4-space
  **/
-void permutation_group_test::test_5a() throw(libtest::test_exception) {
+void permutation_group_test::test_5a() {
 
     static const char *testname = "permutation_group_test::test_5a()";
 
@@ -267,7 +267,7 @@ void permutation_group_test::test_5a() throw(libtest::test_exception) {
 
 /** \test Tests the S2(-)*S2(-) group in a 4-space
  **/
-void permutation_group_test::test_5b() throw(libtest::test_exception) {
+void permutation_group_test::test_5b() {
 
     static const char *testname = "permutation_group_test::test_5b()";
 
@@ -301,7 +301,7 @@ void permutation_group_test::test_5b() throw(libtest::test_exception) {
 
 /** \test Tests the S4(+) group in a 4-space
  **/
-void permutation_group_test::test_6a() throw(libtest::test_exception) {
+void permutation_group_test::test_6a() {
 
     static const char *testname = "permutation_group_test::test_6a()";
 
@@ -333,7 +333,7 @@ void permutation_group_test::test_6a() throw(libtest::test_exception) {
 
 /** \test Tests the S4(-) group in a 4-space
  **/
-void permutation_group_test::test_6b() throw(libtest::test_exception) {
+void permutation_group_test::test_6b() {
 
     static const char *testname = "permutation_group_test::test_6b()";
 
@@ -371,7 +371,7 @@ void permutation_group_test::test_6b() throw(libtest::test_exception) {
 
 /** \test Tests a symmetric perm group in a 4-space
  **/
-void permutation_group_test::test_7() throw(libtest::test_exception) {
+void permutation_group_test::test_7() {
 
     static const char *testname = "permutation_group_test::test_7()";
 
@@ -419,7 +419,7 @@ void permutation_group_test::test_7() throw(libtest::test_exception) {
 
 /** \test Tests a symmetric perm group in a 6-space
  **/
-void permutation_group_test::test_8() throw(libtest::test_exception) {
+void permutation_group_test::test_8() {
 
     static const char *testname = "permutation_group_test::test_8()";
 
@@ -1151,7 +1151,7 @@ throw(libtest::test_exception) {
 
 /** \test Test the identity %permutation on S2(+)*S2(+).
  **/
-void permutation_group_test::test_permute_1() throw(libtest::test_exception) {
+void permutation_group_test::test_permute_1() {
 
     static const char *testname =
             "permutation_group_test::test_permute_1()";
@@ -1191,7 +1191,7 @@ void permutation_group_test::test_permute_1() throw(libtest::test_exception) {
 
 /** \test Test a non-identity %permutation on S2(+)*S2(+).
  **/
-void permutation_group_test::test_permute_2() throw(libtest::test_exception) {
+void permutation_group_test::test_permute_2() {
 
     static const char *testname =
             "permutation_group_test::test_permute_2()";
@@ -1234,7 +1234,7 @@ void permutation_group_test::test_permute_2() throw(libtest::test_exception) {
 
 /** \test Test a non-identity %permutation on S3(+)*C1.
  **/
-void permutation_group_test::test_permute_3() throw(libtest::test_exception) {
+void permutation_group_test::test_permute_3() {
 
     static const char *testname =
             "permutation_group_test::test_permute_3()";
@@ -1332,7 +1332,7 @@ template<size_t N, typename T>
 void permutation_group_test::verify_members(const char *testname,
         const permutation_group<N, T> &grp, const scalar_transf<T> &tr,
         const std::list< std::pair<permutation<N>, scalar_transf<T> > > &allowed)
-    throw(libtest::test_exception) {
+    {
 
     typedef std::pair<permutation<N>, scalar_transf<T> > gen_perm_t;
     typedef std::list<gen_perm_t> perm_list_t;

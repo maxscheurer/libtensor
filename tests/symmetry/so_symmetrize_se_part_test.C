@@ -6,7 +6,7 @@
 
 namespace libtensor {
 
-void so_symmetrize_se_part_test::perform() throw(libtest::test_exception) {
+void so_symmetrize_se_part_test::perform() {
 
     test_empty_1();
     test_empty_2();
@@ -18,7 +18,7 @@ void so_symmetrize_se_part_test::perform() throw(libtest::test_exception) {
 /** \test Tests that pair symmetrization of an empty group yields an
         empty group
  **/
-void so_symmetrize_se_part_test::test_empty_1() throw(libtest::test_exception) {
+void so_symmetrize_se_part_test::test_empty_1() {
 
     static const char *testname = "so_symmetrize_se_part_test::test_empty_1()";
 
@@ -54,7 +54,7 @@ void so_symmetrize_se_part_test::test_empty_1() throw(libtest::test_exception) {
 
 /** \test Tests that a symmetrization of an empty group yields an empty group
  **/
-void so_symmetrize_se_part_test::test_empty_2() throw(libtest::test_exception) {
+void so_symmetrize_se_part_test::test_empty_2() {
 
     static const char *testname = "so_symmetrize_se_part_test::test_empty_2()";
 
