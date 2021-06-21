@@ -15,6 +15,7 @@ requirements:
     - {{ compiler('cxx') }}
     - mkl-devel {{ mkl }}
     - llvm-openmp            # [osx]
+    - intel-openmp           # [linux]
     - cmake >=3.2
     - ninja
     - ccache
