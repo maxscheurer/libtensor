@@ -99,8 +99,7 @@ void so_reduce_se_part_test::test_empty_2() {
 
 /** \test Projection of a 2-space in a single reduction step on a 1-space.
  **/
-void so_reduce_se_part_test::test_nm1_1(bool sign)
-throw(libtest::test_exception) {
+void so_reduce_se_part_test::test_nm1_1(bool sign) {
 
     std::ostringstream tnss;
     tnss << "so_reduce_se_part_test::test_nm1_1(" << sign << ")";

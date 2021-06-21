@@ -1735,8 +1735,7 @@ void btod_contract2_test::test_contr_13() {
 }
 
 
-void btod_contract2_test::test_contr_14(double c)
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_14(double c) {
 
     //
     //  c_ijkl = a_ijmn b_klmn
@@ -1810,8 +1809,7 @@ throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_15(double c)
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_15(double c) {
 
     //
     //  c_ijkl = a_ijmn b_klmn
@@ -1890,8 +1888,7 @@ throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_16(double c)
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_16(double c) {
 
     //
     //  c_iabc = a_kcad b_ikbd
@@ -1977,8 +1974,7 @@ throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_17(double c)
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_17(double c) {
 
     //
     //  c_ij = a_jkab b_ikab
@@ -2074,8 +2070,7 @@ throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_18(double c)
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_18(double c) {
 
     //
     //  c_ij = a_jkab b_iakb
@@ -2166,8 +2161,7 @@ throw(libtest::test_exception) {
     }
 }
 
-void btod_contract2_test::test_contr_19()
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_19() {
 
     //
     //  c_ijab = a_ijkl b_klab
@@ -2296,8 +2290,7 @@ throw(libtest::test_exception) {
 }
 
 
-void btod_contract2_test::test_contr_20a()
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_20a() {
 
     //
     //  c_iy = a_ix b_xy
@@ -2378,8 +2371,7 @@ throw(libtest::test_exception) {
 
 }
 
-void btod_contract2_test::test_contr_20b()
-throw(libtest::test_exception) {
+void btod_contract2_test::test_contr_20b() {
 
     //
     //  c_iy = a_ix b_xy

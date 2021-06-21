@@ -88,8 +88,7 @@ void so_symmetrize_se_part_test::test_empty_2() {
 
 /** \test Pair symmetrization of a group in 4-space.
  **/
-void so_symmetrize_se_part_test::test_sym2_1(bool sign)
-throw(libtest::test_exception) {
+void so_symmetrize_se_part_test::test_sym2_1(bool sign) {
 
     std::ostringstream tnss;
     tnss << "so_symmetrize_se_part_test::test_sym2_1(" << sign << ")";
@@ -171,8 +170,7 @@ throw(libtest::test_exception) {
 
 /** \test Anti-symmetrization of a group in 4-space.
  **/
-void so_symmetrize_se_part_test::test_sym2_2()
-throw(libtest::test_exception) {
+void so_symmetrize_se_part_test::test_sym2_2() {
 
     std::ostringstream tnss;
     tnss << "so_symmetrize_se_part_test::test_sym2_2()";
