@@ -23,9 +23,8 @@ jobs:
     - name: Install dependencies on macOS
       run: |
         brew update
-        brew install ninja ccache libomp cmake
+        brew install ninja ccache libomp cmake llvm
         brew install coreutils || true
-        ls /usr/local/lib/libomp*
       if: contains( matrix.os, 'macos')
     - uses: actions/cache@v1
       env:
@@ -37,11 +36,18 @@ jobs:
           ${{ runner.os }}-deploy-
           ${{ runner.os }}-
 
-    - name: Build
+    - name: Build (Linux)
       shell: bash
       run: |
         ccache --max-size 2G
         ./build_libtensor.py -v -d ${{runner.workspace}}/build --install ${{runner.workspace}}/install --type Release --features libxm
+
+    - name: Build (macOS)
+      if: contains( matrix.os, 'macos')
+      shell: bash
+      run: |
+        ccache --max-size 2G
+        CC=/usr/local/opt/llvm/bin/clang CXX=/usr/local/opt/llvm/bin/clang++ ./build_libtensor.py -v -d ${{runner.workspace}}/build --install ${{runner.workspace}}/install --type Release --features libxm
 
     - name: Test
       working-directory: ${{runner.workspace}}/build
