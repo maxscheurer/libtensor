@@ -25,6 +25,7 @@ jobs:
         brew update
         brew install ninja ccache libomp cmake
         brew install coreutils || true
+        ls /usr/local/lib/libomp*
       if: contains( matrix.os, 'macos')
     - uses: actions/cache@v1
       env:

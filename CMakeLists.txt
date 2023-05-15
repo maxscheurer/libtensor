@@ -66,15 +66,6 @@ else()
 endif()
 set(BLAS_LAPACK_LIBRARIES ${BLAS_LIBRARIES})
 
-if(APPLE)
-    if(CMAKE_C_COMPILER_ID STREQUAL "Clang")
-        set(OpenMP_C_FLAG "-fopenmp=libomp -Wno-unused-command-line-argument")
-    endif()
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
-        set(OpenMP_CXX_FLAG "-fopenmp=libomp -Wno-unused-command-line-argument")
-    endif()
-endif()
-
 ##########################################################################
 # Libxm dependencies
 
