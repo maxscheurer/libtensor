@@ -37,6 +37,7 @@ jobs:
           ${{ runner.os }}-
 
     - name: Build (Linux)
+      if: contains( matrix.os, 'ubuntu')
       shell: bash
       run: |
         ccache --max-size 2G
